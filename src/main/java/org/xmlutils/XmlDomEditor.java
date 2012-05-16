@@ -149,6 +149,28 @@ public final class XmlDomEditor {
 		}
 		return getTagValueOfFirstChild(nodes.item(0));
 	}
+	
+	
+	/**
+	 * This method takes Element object and String tagName as argument and
+	 * returns all values related to <code>tagName</code>. If it does not find
+	 * any node it will return empty List.
+	 * 
+	 * @param element
+	 *            Element object
+	 * @param tagName
+	 *            Name of the tag.
+	 * @return list of tag values
+	 */
+	public static List<String> getTagValues(Element element, String tagName) {
+		List<String> tagValues = new ArrayList<String>();
+		List<Element> elements = getElements(tagName, element);
+		for (Element resultElement : elements) {
+			tagValues.add(getTagValue(resultElement, tagName));
+		}
+		return tagValues;
+	}
+
 
 	/**
 	 * This method takes Node object as argument and return the value of the
