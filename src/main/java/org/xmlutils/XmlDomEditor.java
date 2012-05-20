@@ -170,6 +170,22 @@ public final class XmlDomEditor {
 		}
 		return tagValues;
 	}
+	
+	/**
+	 * This method takes Document object and String tagName as argument and
+	 * returns all values related to <code>tagName</code>. If it does not find
+	 * any node it will return empty List.
+	 * 
+	 * @param document
+	 *            Document object
+	 * @param tagName
+	 *            Name of the tag.
+	 * @return list of tag values
+	 */
+	public static List<String> getTagValues(Document document, String tagName) {
+		Element element = document.getDocumentElement();
+		return getTagValues(element, tagName);
+	}
 
 
 	/**
