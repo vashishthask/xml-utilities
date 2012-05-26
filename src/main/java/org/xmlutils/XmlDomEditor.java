@@ -283,4 +283,31 @@ public final class XmlDomEditor {
 		}
 		return retVal;
 	}
+	
+	/**
+	 * Inserts a new CDATA section in the <code>Document</code> with passed
+	 * <code>tagName</code> and <code>tagValue</code> pair.
+	 * 
+	 * @param doc
+	 *            Document object.
+	 * @param tagName
+	 *            Name of the tag.
+	 * @param tagValue
+	 *            CDATA value of the tag.
+	 * 
+	 */
+	public static void insertCDATASection(Document doc, String tagName,
+			String tagValue) {
+		NodeList nodeList = doc.getElementsByTagName(tagName);
+		if (nodeList == null)
+			return;
+		int j = nodeList.getLength();
+		Node node = null;
+
+		for (int i = 0; i < j; i++) {
+
+			node = nodeList.item(i);
+			node.appendChild(doc.createCDATASection(tagValue));
+		}
+	}
 }

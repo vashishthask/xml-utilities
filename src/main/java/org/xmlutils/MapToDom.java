@@ -1,4 +1,4 @@
-package org.xmlutils.converter;
+package org.xmlutils;
 
 import java.util.Map;
 
@@ -9,10 +9,9 @@ import javax.xml.transform.TransformerException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class MapToXmlDomConverter {
+public class MapToDom {
 	private static final DocumentBuilderFactory DOCUMENT_BUILDER_FACTORY = DocumentBuilderFactory
 			.newInstance();
-
 	public static <K, V> String mapToXml(Map<K, V> map, String rootName,
 			String childName, String keyName, String valueName)
 			throws TransformerException, ParserConfigurationException {
@@ -30,6 +29,6 @@ public class MapToXmlDomConverter {
 			s.setAttribute(valueName, errorCodeReport.getValue().toString());
 		}
 
-		return XmlDomToStringConverter.getStringFromDocument(document);
+		return DomToString.getStringFromDocument(document);
 	}
 }

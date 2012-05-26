@@ -1,4 +1,4 @@
-package org.xmlutils.converter;
+package org.xmlutils;
 
 import java.io.StringWriter;
 
@@ -9,7 +9,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 
-public class XmlDomToStringConverter {
+public class DomToString {
 
 	public static String getStringFromDocument(Document doc) {
 		DOMSource domSource = new DOMSource(doc);
