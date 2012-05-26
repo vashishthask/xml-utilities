@@ -1,4 +1,4 @@
-package org.xmlutils;
+package org.xmlutils.dom;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +9,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public final class XmlDomEditor {
+public final class DomEditor {
 
 	/**
 	 * Gotta keep Colbertura happy.
 	 */
-	private XmlDomEditor() {
+	private DomEditor() {
 		super();
 	}
 
@@ -120,10 +120,10 @@ public final class XmlDomEditor {
 
 	public static void insertOrUpdateTagValue(Document doc, String tagName,
 			String tagValue) {
-		if (XmlDomEditor.checkTagExists(doc, tagName)) {
-			XmlDomEditor.replaceTagValue(doc, tagName, tagValue);
+		if (DomEditor.checkTagExists(doc, tagName)) {
+			DomEditor.replaceTagValue(doc, tagName, tagValue);
 		} else {
-			XmlDomEditor.insertTagValue(doc, tagName, tagValue);
+			DomEditor.insertTagValue(doc, tagName, tagValue);
 		}
 	}
 

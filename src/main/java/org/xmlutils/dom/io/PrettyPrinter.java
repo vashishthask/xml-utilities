@@ -1,4 +1,4 @@
-package org.xmlutils.io;
+package org.xmlutils.dom.io;
 
 import java.io.File;
 

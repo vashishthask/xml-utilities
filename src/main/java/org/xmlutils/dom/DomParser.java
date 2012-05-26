@@ -1,4 +1,4 @@
-package org.xmlutils;
+package org.xmlutils.dom;
 
 import java.io.ByteArrayInputStream;
 
@@ -22,7 +22,7 @@ import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-public class DomXmlParser {
+public class DomParser {
 
 	public static Document getDocument(File xmlFile) {
 		DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
@@ -112,7 +112,7 @@ public class DomXmlParser {
 	 * @return A parsed XML document
 	 */
 	public static Document parseXmlWithRelativeFilePath(String relativeXmlPath) {
-		InputStream stream = DomXmlParser.class.getClassLoader()
+		InputStream stream = DomParser.class.getClassLoader()
 				.getResourceAsStream(relativeXmlPath);
 		try {
 			return parse(stream);
