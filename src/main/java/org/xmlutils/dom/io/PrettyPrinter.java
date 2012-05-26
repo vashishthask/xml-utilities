@@ -16,6 +16,9 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 
 public class PrettyPrinter {
+	
+	private PrettyPrinter() {
+	}
 
 	public static void printToConsole(Document document) {
 		TransformerFactory tfactory = TransformerFactory.newInstance();

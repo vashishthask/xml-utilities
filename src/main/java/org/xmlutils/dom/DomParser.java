@@ -1,7 +1,6 @@
 package org.xmlutils.dom;
 
 import java.io.ByteArrayInputStream;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,15 +13,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.xerces.dom.DocumentImpl;
 import org.apache.xerces.parsers.DOMParser;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class DomParser {
+	
+	private DomParser(){
+		
+	}
 
 	public static Document getDocument(File xmlFile) {
 		DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
@@ -54,21 +54,6 @@ public class DomParser {
 			throw new IllegalStateException(e);
 		}
 
-	}
-
-	/**
-	 * This method is used to convert a given XML Element object to XML Document
-	 * object.
-	 * 
-	 * @param element
-	 *            The XML Element object
-	 * @return <code>Document</code> Returns the XML Document object
-	 */
-	public static Document getDocument(Element element) {
-		Document doc = new DocumentImpl();
-		Node node = ((DocumentImpl) doc).importNode(element, true);
-		doc.appendChild(node);
-		return doc;
 	}
 
 	/**

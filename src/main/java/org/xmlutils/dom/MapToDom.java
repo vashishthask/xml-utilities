@@ -12,6 +12,9 @@ import org.w3c.dom.Element;
 public class MapToDom {
 	private static final DocumentBuilderFactory DOCUMENT_BUILDER_FACTORY = DocumentBuilderFactory
 			.newInstance();
+	
+	private MapToDom() {
+	}
 	public static <K, V> String mapToXml(Map<K, V> map, String rootName,
 			String childName, String keyName, String valueName)
 			throws TransformerException, ParserConfigurationException {

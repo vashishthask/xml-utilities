@@ -10,6 +10,9 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 
 public class DomToString {
+	
+	private DomToString() {
+	}
 
 	public static String getStringFromDocument(Document doc) {
 		DOMSource domSource = new DOMSource(doc);

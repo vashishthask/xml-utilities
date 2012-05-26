@@ -2,7 +2,9 @@ package org.xmlutils.dom;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
+import org.apache.xerces.dom.DocumentImpl;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -186,6 +188,111 @@ public final class DomEditor {
 		Element element = document.getDocumentElement();
 		return getTagValues(element, tagName);
 	}
+	
+	/**
+	 * This method is used to convert a given XML Element object to XML Document
+	 * object.
+	 * 
+	 * @param element
+	 *            The XML Element object
+	 * @return <code>Document</code> Returns the XML Document object
+	 */
+	public static Document getDocument(Element element) {
+		Document doc = new DocumentImpl();
+		Node node = ((DocumentImpl) doc).importNode(element, true);
+		doc.appendChild(node);
+		return doc;
+	}
+	
+	/**
+	 * This method is used to search all the tags with given key in the
+	 * <code>document</code> object.
+	 * 
+	 * @param key
+	 *            Name of the node.
+	 * @param doc
+	 *            the <code>Document</code> object.
+	 * @return the value of the node.
+	 * 
+	 */
+	public static String getNodeValue(String key, Document doc) {
+		return getNodeValue(key, doc.getDocumentElement());
+	}
+	
+	/**
+	 * This method is used to search all the tags with given key in the document
+	 * object.
+	 * 
+	 * @param key
+	 *            Name of the node as String.
+	 * @param contentElement
+	 *            Element object.
+	 * @return <code>String</code> Node value of the tag.
+	 * 
+	 */
+	public static String getNodeValue(String key, Element contentElement) {
+		String value = "";
+		StringTokenizer tokenizer = new StringTokenizer(key, ".", false);
+
+		NodeList nodes = null;
+
+		while (tokenizer.hasMoreTokens()) {
+			String tagName = tokenizer.nextToken();
+			nodes = contentElement.getElementsByTagName(tagName);
+			contentElement = locateElement(nodes);
+			if (contentElement == null)
+				return null;
+		}
+
+		value = getTagValue(contentElement);
+		return value;
+	}
+	
+	/**
+	 * This method takes Node object as argument and return the value of the
+	 * first child of the node.
+	 * <p>
+	 * If there is no such node, this will return null.
+	 * 
+	 * @param node
+	 *            Node object
+	 * @return <code>String</code> returns the value of the node
+	 * 
+	 */
+	public static String getTagValue(Node node) {
+		NodeList childNodeList = node.getChildNodes();
+		String value = null;
+		if (childNodeList == null)
+			value = "";
+		else {
+			StringBuffer buffer = new StringBuffer();
+			for (int j = 0; j < childNodeList.getLength(); j++) {
+				buffer.append(childNodeList.item(j).getNodeValue());
+			}
+			value = buffer.toString();
+		}
+		return value;
+	}
+	
+	private static Element locateElement(NodeList nodes) {
+		if (nodes == null)
+			return null;
+		int len = nodes.getLength();
+		if (len == 0)
+			return null;
+		Element elt = null;
+		for (int i = 0; i < len; i++) {
+			Node n = nodes.item(i);
+			if (n.getNodeType() == Node.ELEMENT_NODE) {
+				elt = (Element) n;
+			} else {
+				continue;
+			}
+		}
+		return elt;
+	}
+
+
 
 
 	/**
