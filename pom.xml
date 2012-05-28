@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.xmlutils</groupId>
+  <groupId>org.sampreshan</groupId>
   <artifactId>xml-utilities</artifactId>
   <version>1.0.0</version>
   <name>XML Utilities</name>
@@ -28,6 +28,8 @@
   </developers>
   <distributionManagement>
     <repository>
+      <id>gh-pages</id>
+      <url>https://github.com/vashishthask/xml-utilities/tree/gh-pages/repository</url>
     </repository>
   </distributionManagement>
   <dependencies>
@@ -81,6 +83,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.4</version>
         <executions>
           <execution>
             <id>sign-artifacts</id>
