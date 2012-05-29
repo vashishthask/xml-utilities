@@ -1,4 +1,4 @@
-package org.xmlutils.dom;
+package com.svashishtha.dom;
 
 import java.io.StringWriter;
 
