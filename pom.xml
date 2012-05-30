@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.svashishtha</groupId>
   <artifactId>xml-utilities</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>XML Utilities</name>
   <packaging>jar</packaging>
   <url>https://github.com/vashishthask/xml-utilities</url>
