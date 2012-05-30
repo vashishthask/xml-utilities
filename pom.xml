@@ -8,6 +8,11 @@
   <packaging>jar</packaging>
   <url>https://github.com/vashishthask/xml-utilities</url>
   <description>High Level XML utilities</description>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -20,7 +25,9 @@
     </license>
   </licenses>
   <scm>
-    <url>https://vashishthask@github.com/vashishthask/xml-utilities.git</url>
+    <connection>scm:git:git@github.com:vashishthask/xml-utilities.git</connection>
+    <developerConnection>scm:git:git@github.com:vashishthask/xml-utilities.git</developerConnection>
+    <url>git@github.com:vashishthask/xml-utilities.git</url>
   </scm>
   <developers>
     <developer>
