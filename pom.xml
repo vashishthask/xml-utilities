@@ -36,13 +36,6 @@
       <url>http://www.svashishtha.com</url>
     </developer>
   </developers>
-  <distributionManagement>
-    <repository>
-      <id>gh-pages</id>
-      <!--url>https://github.com/vashishthask/xml-utilities/tree/gh-pages/repository</url-->
-      <url>file:///${basedir}/../maven-repo-github/xml-utilities/repository</url>
-    </repository>
-  </distributionManagement>
   <dependencies>
     <dependency>
       <groupId>xerces</groupId>
