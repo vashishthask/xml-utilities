@@ -67,6 +67,7 @@ public final class DomEditor {
 	 *            the name of new tag
 	 * @param tagValue
 	 *            the value of new tag
+         * @return new Element below the tag
 	 */
 	public static Element insertNewTagBelow(Document d, String appendTo,
 			String tagName, String tagValue) {
@@ -90,6 +91,7 @@ public final class DomEditor {
 	 *            Name of the tag as String.
 	 * @param tagValue
 	 *            Value of the tag as String.
+         * @return inserted Element
 	 */
 	public static Element insertTagValue(Document doc, String tagName,
 			String tagValue) {
@@ -105,12 +107,15 @@ public final class DomEditor {
 	 * Inserts a new value for an XML tag specified by <code>tagName</code> name
 	 * in a <code>Element</code> object.
 	 * 
+         * @param document
+         *            doc from which the new tag gets created
 	 * @param elementToAppend
 	 *            Element object.
 	 * @param tagName
 	 *            Name of the tag as String.
 	 * @param tagValue
 	 *            Value of the tag as String.
+         * @return the resultant Element after insert
 	 */
 	public static Element insertTagInElement(Document document,
 			Element elementToAppend, String tagName, String tagValue) {
@@ -298,7 +303,6 @@ public final class DomEditor {
 	/**
 	 * This method takes Node object as argument and return the value of the
 	 * first child of the node.
-	 * <p/>
 	 * If there is no such node, this will return null.
 	 * 
 	 * @param node
